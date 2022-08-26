@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Print a word letter by letter on click (and Enter)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+used Ant Design for the first time
 
-## Available Scripts
+npm install --save antd
 
-In the project directory, you can run:
+------- in App.js -----------------------
 
-### `npm start`
+import 'antd/dist/antd.css'
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-------- in the component in which antd should be used ----------
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+import { component } from 'antd'
 
-### `npm test`
+--------------------------------------------------------------
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Steps
 
-### `npm run build`
+put a Button element and Input element after importing them from antd
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+the button element has the onClick function set to handleClick function
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+the handleClick function will not be returning any value mind you...
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+the handle click function is used to change the setState...
 
-### `npm run eject`
+previously the useStateshould be used in counter and input element....
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+the input element will have the placeholder andd onChange attribute which corresponds to handleChange function which can set the input value
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+the setState values are called separately in the synntaax following
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+{text.length > 0 ? <strong><li key={text}>{text}</li></strong> : "suma"}
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+.map method can be used if a separate array is used to searate the letters or split method is used....
 
-## Learn More
+.split method will separate the letters and create an array
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+a counter is also used so that they can be used in charAt method to call the letters separately...
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+onPressEnter is also used...
 
-### Code Splitting
+in order to use two functions in the same event handler ------------>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+onEventHandler={() => {function1();function2();}} must be used...
 
-### Analyzing the Bundle Size
+mind you that the function must have parenthesis in this method....
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+now the pictures....
 
-### Making a Progressive Web App
+## <------------ initial state ----------->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![1](https://user-images.githubusercontent.com/110388514/186926882-c501716c-6614-40a3-89ae-64026c58ded9.PNG)
 
-### Advanced Configuration
+## <----------- after adding the element -----------> 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![2](https://user-images.githubusercontent.com/110388514/186927030-68ef72a3-6e12-4f0a-b3e8-a9ae5d9ca411.PNG)
 
-### Deployment
+## <------- after first enter ------>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![3](https://user-images.githubusercontent.com/110388514/186927136-148945c0-f16e-421c-9d7e-b444b6890040.PNG)
 
-### `npm run build` fails to minify
+## <--------- after the next enter ---------->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![4](https://user-images.githubusercontent.com/110388514/186927188-257eb475-b052-4c65-bff7-9a4f79b448b1.PNG)
+
+## <--------- final element ----------->
+
+![5](https://user-images.githubusercontent.com/110388514/186927252-08370b8b-698e-43fd-9d37-10cff2517ed2.PNG)
