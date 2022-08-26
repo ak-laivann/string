@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Button, Input } from "antd";
-// import './Button.css';
+import './Button.css';
 
 import React from 'react'
 
@@ -10,6 +10,8 @@ const Click = () => {
     const [ text, setText ] = useState([])
 
     const [ para, setPara ] = useState("")
+
+    const [ count, setCount ] = useState(0)
 
     function handleChange (e) {
         
@@ -21,9 +23,11 @@ const Click = () => {
     function handleClick (e) {
 
         let a = para
-        
-        setText(a.split(''))
 
+        setCount(count+1)
+        
+        setText(a.charAt(count))
+        
     }
 
     return (
@@ -34,14 +38,15 @@ const Click = () => {
                 
                 {para.length>0 ? <b><p key={para}>{para}</p></b> : "shit"}
                 
-                <Input value={para} placeholder="type a string" onChange={handleChange} onPressEnter={handleClick} />
+                <Input value={para} placeholder="type a string" onChange={handleChange} onPressEnter={()=>{setCount(count+1);handleClick()}} />
             
             </div>
 
-            {text.length > 0 ? <strong>{text.map(item => <li key={item}>{item}</li>)}</strong> : "suma"}
+            {text.length > 0 ? <strong><li key={text}>{text}</li></strong> : "suma"}<br/>
             
-            <Button type="primary" onClick={handleClick}>Click me</Button>
+            <Button type="primary" onClick={()=>{setCount(count+1);handleClick();}}>Click me</Button>
         
+            <p>you have clicked {count} times</p>
         </div>
 
     )
