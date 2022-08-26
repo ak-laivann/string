@@ -30,7 +30,7 @@ the input element will have the placeholder andd onChange attribute which corres
 
 the setState values are called separately in the synntaax following
 
-{text.length > 0 ? <strong><li key={text}>{text}</li></strong> : "suma"}
+{text.length > 0 ? <strong><li key =| {bracestext}>{text}</li></strong> : "suma"}
 
 .map method can be used if a separate array is used to searate the letters or split method is used....
 
